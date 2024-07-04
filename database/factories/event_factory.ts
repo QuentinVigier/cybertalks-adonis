@@ -5,11 +5,14 @@ import { SpeakerFactory } from './speaker_factory.js'
 
 export const EventFactory = factory
   .define(Event, async ({ faker }) => {
+    const title = faker.lorem.sentence()
     return {
-      title: faker.lorem.sentence(),
+      title: title,
+      slug: faker.helpers.slugify(title),
       description: faker.lorem.paragraphs(),
       isOnline: faker.datatype.boolean(),
       date: DateTime.now(),
+      // category: faker.number.int({ min:1, max:4 })
     }
   })
   .relation('speakers', () => SpeakerFactory)

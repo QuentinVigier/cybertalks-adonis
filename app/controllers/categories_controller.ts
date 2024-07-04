@@ -6,4 +6,6 @@ export default class CategoriesController {
       'pageTitle': 'Catégories d\'évènements',
     })
   }
+
+  
 }
